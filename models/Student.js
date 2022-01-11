@@ -10,9 +10,14 @@ const studentSchema = new mongoose.Schema({
     age: {
         type: Number,
         max: 120,
+        min: 0,
         required: true,
 
     },
-    date: Date
+    date: {
+        type: Date,
+        default: () => (new Date().getTime())
+    },
+
 });
 module.exports = mongoose.model("Student", studentSchema)
